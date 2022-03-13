@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-import '../../services/themeservices.dart';
+import '../components/components.dart';
 
 class HomeScr extends StatelessWidget {
   const HomeScr({Key? key}) : super(key: key);
@@ -8,14 +9,51 @@ class HomeScr extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: IconButton(
-          onPressed: () {
-            ThemeServices().changeTheme();
-          },
-          icon: const Icon(Icons.access_alarm),
-        ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: const Icon(Icons.refresh),
+      ),
+      body: Container(
+        padding: const EdgeInsets.all(8),
+        height: Get.height,
+        width: Get.width,
+        color: Colors.indigo,
+        child: Column(children: [
+          navBAr(),
+          Row(),
+          Row(),
+        ]),
       ),
     );
   }
+}
+
+Widget navBAr() {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    children: [
+      Row(
+        children: [
+          navbarItem(text: 'home'),
+          const SizedBox(
+            width: 30,
+          ),
+          navbarItem(text: 'github'),
+          const SizedBox(
+            width: 30,
+          ),
+          navbarItem(text: 'linkedin'),
+          const SizedBox(
+            width: 30,
+          ),
+          navbarItem(text: 'twitter'),
+        ],
+      ),
+      const Text(
+        'LOGO',
+        style: TextStyle(
+            color: Colors.white, fontWeight: FontWeight.bold, fontSize: 35),
+      )
+    ],
+  );
 }

@@ -54,3 +54,20 @@ Widget defaultTextFormField({
           ),
           hintText: htext),
     );
+
+Widget navbarItem({
+  required String text,
+}) {
+  return TextButton(
+    onPressed: () {},
+    style: ButtonStyle(
+      elevation: MaterialStateProperty.all(12),
+      overlayColor: MaterialStateProperty.all(Colors.red),
+      foregroundColor: MaterialStateProperty.all(Colors.white),
+    ),
+    child: Text(
+      text.toUpperCase(),
+      style: const TextStyle(fontSize: 18),
+    ),
+  );
+}
