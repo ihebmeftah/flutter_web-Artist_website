@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_web/routes/routes.dart';
-import 'package:flutter_web/services/themeservices.dart';
 import 'package:flutter_web/views/theme/theme.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
@@ -19,9 +18,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      theme: ThemesApp.light,
-      darkTheme: ThemesApp.dark,
-      themeMode: ThemeServices().theme,
+      theme: ThemesApp.dark,
       getPages: Approutes.routes,
       initialRoute: Approutes.home,
     );

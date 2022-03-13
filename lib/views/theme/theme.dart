@@ -17,7 +17,8 @@ class ThemesApp {
       elevation: 0,
       backgroundColor: Colors.white,
       // Icon Theme for App
-      iconTheme: IconThemeData(color: Colors.black, size: 25),
+      iconTheme:
+          IconThemeData(color: Color.fromARGB(255, 255, 255, 255), size: 25),
       // text theme of appbar
       toolbarTextStyle: TextStyle(
           fontSize: 18,
@@ -37,28 +38,15 @@ class ThemesApp {
   );
 
   static final dark = ThemeData(
-    appBarTheme: const AppBarTheme(
-        elevation: 0,
-        toolbarTextStyle: TextStyle(
-            fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white)),
-    iconTheme: const IconThemeData(color: Colors.white, size: 25),
-    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-        elevation: 0.0,
-        selectedItemColor: Colors.white,
-        selectedLabelStyle: TextStyle(fontSize: 12),
-        unselectedLabelStyle: TextStyle(fontSize: 12),
-        selectedIconTheme: IconThemeData(size: 30)),
+    iconTheme: const IconThemeData(color: Colors.white, size: 30),
     primarySwatch: Colors.red,
     brightness: Brightness.dark,
   );
 
   //------TITLE STYLE-------
   TextStyle get titleStyle {
-    return const TextStyle(fontSize: 18, fontWeight: FontWeight.bold);
-  }
-
-  TextStyle get titleStyle2 {
-    return const TextStyle(fontSize: 15, fontWeight: FontWeight.w400);
+    return const TextStyle(
+        fontSize: 20, fontWeight: FontWeight.bold, letterSpacing: 2);
   }
 
   TextStyle get subTitleStyle {
