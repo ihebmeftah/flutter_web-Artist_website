@@ -15,7 +15,10 @@ class HomeScr extends StatelessWidget {
         Expanded(
           flex: 2,
           child: Scaffold(
-            appBar: AppBar(title: navBAr()),
+            appBar: AppBar(
+              title: navBAr(),
+              elevation: 0,
+            ),
             floatingActionButton: FloatingActionButton(
                 backgroundColor: Colors.red,
                 onPressed: () {},
@@ -46,6 +49,7 @@ class HomeScr extends StatelessWidget {
       options: CarouselOptions(
         height: Get.height,
         autoPlay: true,
+        autoPlayInterval: const Duration(seconds: 3),
         viewportFraction: 1.2,
       ),
       items: [
@@ -55,15 +59,13 @@ class HomeScr extends StatelessWidget {
       ].map((i) {
         return Builder(
           builder: (BuildContext context) {
-            return Expanded(
-              child: Container(
-                decoration: BoxDecoration(
-                    image: DecorationImage(
-                        image: NetworkImage(
-                          i,
-                        ),
-                        fit: BoxFit.fill)),
-              ),
+            return Container(
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: NetworkImage(
+                        i,
+                      ),
+                      fit: BoxFit.fill)),
             );
           },
         );
