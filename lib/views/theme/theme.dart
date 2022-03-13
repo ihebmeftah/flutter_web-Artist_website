@@ -38,6 +38,7 @@ class ThemesApp {
   );
 
   static final dark = ThemeData(
+    appBarTheme: AppBarTheme(color: Colors.black),
     iconTheme: const IconThemeData(color: Colors.white, size: 30),
     primarySwatch: Colors.red,
     brightness: Brightness.dark,
