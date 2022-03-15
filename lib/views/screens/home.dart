@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_web/views/screens/homescreen.dart';
 import 'package:get/get.dart';
 
 import '../../controllers/controller.dart';
@@ -106,11 +107,11 @@ class HomeScr extends StatelessWidget {
                       child: IndexedStack(
                           index: controller.selcted,
                           alignment: Alignment.center,
-                          children: [
-                            homeContainer(),
-                            const Text('2'),
-                            homeContainer(),
-                            const Text('4'),
+                          children: const [
+                            Homescreen(),
+                            Text('2'),
+                            Homescreen(),
+                            Text('4'),
                           ]),
                     ),
                   ),
