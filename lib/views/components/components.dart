@@ -2,10 +2,6 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../screens/events.dart';
-import '../screens/home.dart';
-import '../theme/theme.dart';
-
 Widget defaultTextFormField({
   String? Function(String? val)? validate,
   required String htext,
@@ -60,75 +56,18 @@ Widget defaultTextFormField({
           ),
           hintText: htext),
     );
-PreferredSize navBar() {
-  return PreferredSize(
-      preferredSize: Size(Get.width, 500),
-      child: Padding(
-        padding: const EdgeInsets.all(15.0),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Row(
-              children: [
-                const CircleAvatar(
-                  radius: 25,
-                  backgroundImage: NetworkImage(
-                    'https://scontent.ftun7-1.fna.fbcdn.net/v/t1.6435-9/124799568_111312587455829_2532760616190581867_n.jpg?_nc_cat=104&ccb=1-5&_nc_sid=174925&_nc_ohc=K5uwqEmiKBcAX961j-0&tn=JtdNzOyUZrZJh6ru&_nc_ht=scontent.ftun7-1.fna&oh=00_AT9GonpNg5lq2-dnzg4jMTVi6fvPlI3TmpPwfRhex49GDg&oe=6253A562',
-                  ),
-                ),
-                const SizedBox(
-                  width: 10,
-                ),
-                Text(
-                  "Redstar entality ",
-                  style: ThemesApp().titleStyle,
-                )
-              ],
-            ),
-            Row(
-              children: [
-                navbarItem(
-                    text: 'home',
-                    onPressed: () {
-                      Get.offAll(const HomeScr());
-                    }),
-                const SizedBox(
-                  width: 30,
-                ),
-                navbarItem(text: 'music', onPressed: () {}),
-                const SizedBox(
-                  width: 30,
-                ),
-                navbarItem(
-                    text: 'events',
-                    onPressed: () {
-                      Get.offAll(const Events());
-                    }),
-                const SizedBox(
-                  width: 30,
-                ),
-                navbarItem(text: 'shop', onPressed: () {}),
-                const SizedBox(
-                  width: 30,
-                ),
-              ],
-            ),
-          ],
-        ),
-      ));
-}
 
-Widget navbarItem({
-  required String text,
-  required Function() onPressed,
-}) {
+Widget navbarItem(
+    {required String text,
+    required Function() onPressed,
+    required MaterialStateProperty<Color?>? backgroundColor}) {
   return TextButton(
     onPressed: onPressed,
     style: ButtonStyle(
-      elevation: MaterialStateProperty.all(12),
-      overlayColor: MaterialStateProperty.all(Colors.red),
-      foregroundColor: MaterialStateProperty.all(Colors.white),
-    ),
+        elevation: MaterialStateProperty.all(12),
+        overlayColor: MaterialStateProperty.all(Colors.red),
+        foregroundColor: MaterialStateProperty.all(Colors.white),
+        backgroundColor: backgroundColor),
     child: Text(
       text.toUpperCase(),
       style: const TextStyle(fontSize: 18),
