@@ -1,3 +1,4 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_web/views/screens/homescreen.dart';
 import 'package:flutter_web/views/screens/musicscreen.dart';
@@ -5,11 +6,16 @@ import 'package:get/get.dart';
 
 import '../../controllers/controller.dart';
 import '../components/components.dart';
-import '../theme/theme.dart';
 
 class HomeScr extends StatelessWidget {
   const HomeScr({Key? key}) : super(key: key);
+  static const colorizeColors = [
+    Colors.white,
+    Color.fromARGB(255, 204, 22, 9),
+  ];
 
+  static const colorizeTextStyle = TextStyle(
+      fontSize: 30.0, fontFamily: 'Horizon', fontWeight: FontWeight.bold);
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -43,9 +49,16 @@ class HomeScr extends StatelessWidget {
                                 const SizedBox(
                                   width: 10,
                                 ),
-                                Text(
-                                  "Redstar Mentality",
-                                  style: ThemesApp().titleStyle,
+                                AnimatedTextKit(
+                                  animatedTexts: [
+                                    ColorizeAnimatedText(
+                                      'Redstar Mentality',
+                                      textStyle: colorizeTextStyle,
+                                      colors: colorizeColors,
+                                    ),
+                                  ],
+                                  isRepeatingAnimation: true,
+                                  repeatForever: true,
                                 )
                               ],
                             ),
