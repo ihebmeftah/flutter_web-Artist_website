@@ -41,7 +41,7 @@ class ThemesApp {
   static final dark = ThemeData(
     scaffoldBackgroundColor: Colors.black,
     appBarTheme: const AppBarTheme(color: Color.fromARGB(255, 8, 8, 8)),
-    iconTheme: const IconThemeData(color: Colors.white, size: 30),
+    iconTheme: const IconThemeData(color: Colors.white, size: 20),
     primarySwatch: Colors.red,
     brightness: Brightness.dark,
   );

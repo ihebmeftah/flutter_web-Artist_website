@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_web/views/screens/homescreen.dart';
+import 'package:flutter_web/views/screens/musicscreen.dart';
 import 'package:get/get.dart';
 
 import '../../controllers/controller.dart';
@@ -13,7 +14,11 @@ class HomeScr extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Expanded(child: slider()),
+        Expanded(
+            child: Container(
+          color: Colors.black,
+          child: slider(),
+        )),
         GetBuilder<Controller>(
             init: Controller(),
             builder: (controller) {
@@ -21,7 +26,7 @@ class HomeScr extends StatelessWidget {
                 flex: 2,
                 child: Scaffold(
                   appBar: PreferredSize(
-                      preferredSize: Size(Get.width, 500),
+                      preferredSize: Size(Get.width, 400),
                       child: Padding(
                         padding: const EdgeInsets.all(15.0),
                         child: Row(
@@ -39,7 +44,7 @@ class HomeScr extends StatelessWidget {
                                   width: 10,
                                 ),
                                 Text(
-                                  "Redstar entality ",
+                                  "Redstar Mentality",
                                   style: ThemesApp().titleStyle,
                                 )
                               ],
@@ -95,25 +100,22 @@ class HomeScr extends StatelessWidget {
                           ],
                         ),
                       )),
-                  floatingActionButton: FloatingActionButton(
+                  floatingActionButton: FloatingActionButton.small(
                       backgroundColor: Colors.red,
                       onPressed: () {},
                       child: const Center(
                           child:
                               Icon(Icons.info_outline, color: Colors.white))),
-                  body: SingleChildScrollView(
-                    child: Padding(
-                      padding: const EdgeInsets.all(30.0),
-                      child: IndexedStack(
-                          index: controller.selcted,
-                          alignment: Alignment.center,
-                          children: const [
-                            Homescreen(),
-                            Text('2'),
-                            Homescreen(),
-                            Text('4'),
-                          ]),
-                    ),
+                  body: Padding(
+                    padding: const EdgeInsets.all(30.0),
+                    child: IndexedStack(
+                        index: controller.selcted,
+                        children: const [
+                          Homescreen(),
+                          MusicScreen(),
+                          Text('Events'),
+                          Text('Shop'),
+                        ]),
                   ),
                 ),
               );

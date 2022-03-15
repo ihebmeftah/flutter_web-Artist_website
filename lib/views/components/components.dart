@@ -78,10 +78,11 @@ Widget navbarItem(
 slider() {
   return CarouselSlider(
     options: CarouselOptions(
+      autoPlayAnimationDuration: const Duration(seconds: 4),
       height: Get.height,
       autoPlay: true,
-      autoPlayInterval: const Duration(seconds: 3),
-      viewportFraction: 1.2,
+      autoPlayInterval: const Duration(seconds: 10),
+      viewportFraction: 1.0,
     ),
     items: [
       "https://scontent.ftun7-1.fna.fbcdn.net/v/t39.30808-6/269965005_383151843605234_6725198869422476706_n.jpg?stp=dst-jpg_p480x480&_nc_cat=111&ccb=1-5&_nc_sid=8bfeb9&_nc_ohc=oyH1oAh4HUkAX8RQDgH&_nc_oc=AQlL-wpAJw58mf79lPdkpM_5s3NkMQ7gYDGfl410saGxHNPQeUPSoeS0yFABMnhYrEY&_nc_ht=scontent.ftun7-1.fna&oh=00_AT_6eDWtLAGTAQl4KxCk8oHnYDCcJc3lI9q3sOA7ucJdfw&oe=62331169",
@@ -91,7 +92,9 @@ slider() {
       return Builder(
         builder: (BuildContext context) {
           return Container(
+            margin: const EdgeInsets.all(15),
             decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(30),
                 image: DecorationImage(
                     image: NetworkImage(
                       i,
@@ -101,5 +104,20 @@ slider() {
         },
       );
     }).toList(),
+  );
+}
+
+platforme({
+  required IconData icn,
+  Color? clr,
+}) {
+  return TextButton(
+    style: ButtonStyle(
+        elevation: MaterialStateProperty.all(12),
+        overlayColor: MaterialStateProperty.all(clr ?? Colors.blue),
+        foregroundColor: MaterialStateProperty.all(Colors.white),
+        backgroundColor: MaterialStateProperty.all(Colors.black)),
+    onPressed: () {},
+    child: Icon(icn),
   );
 }

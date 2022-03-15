@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'Flutter Demo',
+      title: 'Redstar Mentality',
       debugShowCheckedModeBanner: false,
       theme: ThemesApp.dark,
       getPages: Approutes.routes,
