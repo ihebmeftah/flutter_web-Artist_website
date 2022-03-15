@@ -11,6 +11,7 @@ const Color kCOlor5 = Color(0xff6D454D);
 
 class ThemesApp {
   static final light = ThemeData(
+    scaffoldBackgroundColor: Colors.black,
     primaryColor: Colors.black,
     iconTheme: const IconThemeData(color: Colors.black, size: 50),
     appBarTheme: const AppBarTheme(
@@ -38,6 +39,7 @@ class ThemesApp {
   );
 
   static final dark = ThemeData(
+    scaffoldBackgroundColor: Colors.black,
     appBarTheme: const AppBarTheme(color: Color.fromARGB(255, 8, 8, 8)),
     iconTheme: const IconThemeData(color: Colors.white, size: 30),
     primarySwatch: Colors.red,
