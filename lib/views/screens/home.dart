@@ -52,7 +52,6 @@ class HomeScr extends StatelessWidget {
                                     text: 'home',
                                     onPressed: () {
                                       controller.navigation(0);
-                                      controller.onclick(controller.selcted, 0);
                                     }),
                                 const SizedBox(
                                   width: 30,
@@ -64,13 +63,14 @@ class HomeScr extends StatelessWidget {
                                     text: 'music',
                                     onPressed: () {
                                       controller.navigation(1);
-                                      controller.onclick(controller.selcted, 1);
                                     }),
                                 const SizedBox(
                                   width: 30,
                                 ),
                                 navbarItem(
-                                    backgroundColor: null,
+                                    backgroundColor: controller.navBackcolor[2]
+                                        ? MaterialStateProperty.all(Colors.red)
+                                        : null,
                                     text: 'events',
                                     onPressed: () {
                                       controller.navigation(2);
@@ -83,7 +83,9 @@ class HomeScr extends StatelessWidget {
                                     onPressed: () {
                                       controller.navigation(3);
                                     },
-                                    backgroundColor: null),
+                                    backgroundColor: controller.navBackcolor[3]
+                                        ? MaterialStateProperty.all(Colors.red)
+                                        : null),
                                 const SizedBox(
                                   width: 30,
                                 ),
@@ -101,17 +103,15 @@ class HomeScr extends StatelessWidget {
                   body: SingleChildScrollView(
                     child: Padding(
                       padding: const EdgeInsets.all(30.0),
-                      child: Center(
-                        child: IndexedStack(
-                            index: controller.selcted,
-                            alignment: Alignment.center,
-                            children: [
-                              homeContainer(),
-                              const Text('2'),
-                              const Text('3'),
-                              const Text('4'),
-                            ]),
-                      ),
+                      child: IndexedStack(
+                          index: controller.selcted,
+                          alignment: Alignment.center,
+                          children: [
+                            homeContainer(),
+                            const Text('2'),
+                            homeContainer(),
+                            const Text('4'),
+                          ]),
                     ),
                   ),
                 ),
