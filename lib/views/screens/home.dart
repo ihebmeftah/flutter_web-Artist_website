@@ -4,7 +4,7 @@ import 'package:flutter_web/views/screens/homescreen.dart';
 import 'package:flutter_web/views/screens/musicscreen.dart';
 import 'package:flutter_web/views/screens/shopscreen.dart';
 import 'package:get/get.dart';
-import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 
 import '../../controllers/controller.dart';
 import '../components/components.dart';
@@ -16,10 +16,11 @@ class HomeScr extends StatelessWidget {
     Color.fromARGB(255, 204, 22, 9),
   ];
   final YoutubePlayerController _controller = YoutubePlayerController(
-    initialVideoId: 'iLnmTe5Q2Qw',
-    flags: const YoutubePlayerFlags(
-      autoPlay: true,
-      mute: true,
+    initialVideoId: 'K18cpp_-gP8',
+    params: const YoutubePlayerParams(
+      startAt: Duration(seconds: 30),
+      showControls: true,
+      showFullscreenButton: true,
     ),
   );
   static const colorizeTextStyle = TextStyle(
@@ -132,19 +133,12 @@ class HomeScr extends StatelessWidget {
                     child: IndexedStack(index: controller.selcted, children: [
                       const Homescreen(),
                       const MusicScreen(),
-                      YoutubePlayer(
+                      YoutubePlayerControllerProvider(
+                        // Provides controller to all the widget below it.
                         controller: _controller,
-                        showVideoProgressIndicator: true,
-                        progressIndicatorColor: Colors.amber,
-                        progressColors: const ProgressBarColors(
-                          playedColor: Colors.amber,
-                          handleColor: Colors.amberAccent,
+                        child: const YoutubePlayerIFrame(
+                          aspectRatio: 16 / 9,
                         ),
-                        onReady: () {
-                          _controller.addListener(
-                            () {},
-                          );
-                        },
                       ),
                       const Shopscreen(),
                     ]),
