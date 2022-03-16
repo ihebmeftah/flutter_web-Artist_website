@@ -9,7 +9,7 @@ class Approutes {
   static final routes = [
     GetPage(
       name: Routes.home,
-      page: () => const HomeScr(),
+      page: () => HomeScr(),
     ),
   ];
 }

@@ -4,17 +4,24 @@ import 'package:flutter_web/views/screens/homescreen.dart';
 import 'package:flutter_web/views/screens/musicscreen.dart';
 import 'package:flutter_web/views/screens/shopscreen.dart';
 import 'package:get/get.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 import '../../controllers/controller.dart';
 import '../components/components.dart';
 
 class HomeScr extends StatelessWidget {
-  const HomeScr({Key? key}) : super(key: key);
+  HomeScr({Key? key}) : super(key: key);
   static const colorizeColors = [
     Colors.white,
     Color.fromARGB(255, 204, 22, 9),
   ];
-
+  final YoutubePlayerController _controller = YoutubePlayerController(
+    initialVideoId: 'iLnmTe5Q2Qw',
+    flags: const YoutubePlayerFlags(
+      autoPlay: true,
+      mute: true,
+    ),
+  );
   static const colorizeTextStyle = TextStyle(
       fontSize: 30.0, fontFamily: 'Horizon', fontWeight: FontWeight.bold);
   @override
@@ -122,14 +129,25 @@ class HomeScr extends StatelessWidget {
                               Icon(Icons.info_outline, color: Colors.white))),
                   body: Padding(
                     padding: const EdgeInsets.all(30.0),
-                    child: IndexedStack(
-                        index: controller.selcted,
-                        children: const [
-                          Homescreen(),
-                          MusicScreen(),
-                          Text('Event'),
-                          Shopscreen(),
-                        ]),
+                    child: IndexedStack(index: controller.selcted, children: [
+                      const Homescreen(),
+                      const MusicScreen(),
+                      YoutubePlayer(
+                        controller: _controller,
+                        showVideoProgressIndicator: true,
+                        progressIndicatorColor: Colors.amber,
+                        progressColors: const ProgressBarColors(
+                          playedColor: Colors.amber,
+                          handleColor: Colors.amberAccent,
+                        ),
+                        onReady: () {
+                          _controller.addListener(
+                            () {},
+                          );
+                        },
+                      ),
+                      const Shopscreen(),
+                    ]),
                   ),
                 ),
               );

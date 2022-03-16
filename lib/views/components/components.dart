@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bounceable/flutter_bounceable.dart';
 import 'package:get/get.dart';
 
 Widget defaultTextFormField({
@@ -68,9 +69,12 @@ Widget navbarItem(
         overlayColor: MaterialStateProperty.all(Colors.red),
         foregroundColor: MaterialStateProperty.all(Colors.white),
         backgroundColor: backgroundColor),
-    child: Text(
-      text.toUpperCase(),
-      style: const TextStyle(fontSize: 18),
+    child: Bounceable(
+      onTap: onPressed,
+      child: Text(
+        text.toUpperCase(),
+        style: const TextStyle(fontSize: 18),
+      ),
     ),
   );
 }
