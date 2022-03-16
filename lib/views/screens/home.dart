@@ -2,6 +2,7 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_web/views/screens/homescreen.dart';
 import 'package:flutter_web/views/screens/musicscreen.dart';
+import 'package:flutter_web/views/screens/shopscreen.dart';
 import 'package:get/get.dart';
 
 import '../../controllers/controller.dart';
@@ -126,8 +127,8 @@ class HomeScr extends StatelessWidget {
                         children: const [
                           Homescreen(),
                           MusicScreen(),
-                          Text('Events'),
-                          Text('Shop'),
+                          Text('Event'),
+                          Shopscreen(),
                         ]),
                   ),
                 ),

@@ -35,6 +35,9 @@ dependencies:
   animated_text_kit: ^4.2.1
   get: ^4.6.1
   get_storage: ^2.0.3
+  animated_flip_card: ^1.0.2
+  flip_card: ^0.6.0
+  youtube_player_flutter: ^8.0.0
 dev_dependencies:
   flutter_lints: ^1.0.0
   flutter_test:

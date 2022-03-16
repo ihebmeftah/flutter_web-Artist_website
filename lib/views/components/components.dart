@@ -121,3 +121,33 @@ platforme({
     child: Icon(icn),
   );
 }
+
+productcard({
+  required String imhurl,
+  required double? price,
+}) {
+  return Container(
+    padding: const EdgeInsets.all(10),
+    margin: const EdgeInsets.all(10),
+    height: 240,
+    width: 240,
+    decoration: BoxDecoration(
+        boxShadow: const [
+          BoxShadow(
+            color: Colors.red,
+            spreadRadius: 1,
+            blurRadius: 7,
+          ),
+        ],
+        borderRadius: BorderRadius.circular(20),
+        image: DecorationImage(
+            fit: BoxFit.fill,
+            image: AssetImage(
+              imhurl,
+            ))),
+    child: Text(
+      "$price\$",
+      style: const TextStyle(color: Colors.black),
+    ),
+  );
+}
