@@ -49,7 +49,10 @@ class ThemesApp {
   //------TITLE STYLE-------
   TextStyle get titleStyle {
     return const TextStyle(
-        fontSize: 20, fontWeight: FontWeight.bold, letterSpacing: 2);
+        color: Colors.white,
+        fontSize: 20,
+        fontWeight: FontWeight.bold,
+        letterSpacing: 2);
   }
 
   TextStyle get subTitleStyle {

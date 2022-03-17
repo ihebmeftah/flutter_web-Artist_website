@@ -1,7 +1,9 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bounceable/flutter_bounceable.dart';
+import 'package:flutter_web/views/theme/theme.dart';
 import 'package:get/get.dart';
+import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 
 Widget defaultTextFormField({
   String? Function(String? val)? validate,
@@ -153,5 +155,39 @@ productcard({
       "$price\$",
       style: const TextStyle(color: Colors.black),
     ),
+  );
+}
+
+youtubePlayer({required String initialVideoId}) {
+  final YoutubePlayerController _controller = YoutubePlayerController(
+    initialVideoId: initialVideoId,
+    params: const YoutubePlayerParams(
+      autoPlay: true,
+      showVideoAnnotations: false,
+      playsInline: false,
+      desktopMode: true,
+    ),
+  );
+  return Row(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    mainAxisAlignment: MainAxisAlignment.start,
+    children: [
+      SizedBox(
+        height: 280,
+        width: 400,
+        child: YoutubePlayerControllerProvider(
+          controller: _controller,
+          child: const YoutubePlayerIFrame(),
+        ),
+      ),
+      SizedBox(
+        width: 25,
+      ),
+      Expanded(
+          child: Text(
+        "dfdqofnqdjqdnfjqdkfbqdjflqbjdbfjdqlfqdjlfjldqljw",
+        style: ThemesApp().titleStyle,
+      ))
+    ],
   );
 }

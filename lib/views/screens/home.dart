@@ -4,36 +4,28 @@ import 'package:flutter_web/views/screens/homescreen.dart';
 import 'package:flutter_web/views/screens/musicscreen.dart';
 import 'package:flutter_web/views/screens/shopscreen.dart';
 import 'package:get/get.dart';
-import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 
 import '../../controllers/controller.dart';
 import '../components/components.dart';
 
 class HomeScr extends StatelessWidget {
-  HomeScr({Key? key}) : super(key: key);
+  const HomeScr({Key? key}) : super(key: key);
   static const colorizeColors = [
     Colors.white,
     Color.fromARGB(255, 204, 22, 9),
   ];
-  final YoutubePlayerController _controller = YoutubePlayerController(
-    initialVideoId: 'K18cpp_-gP8',
-    params: const YoutubePlayerParams(
-      startAt: Duration(seconds: 30),
-      showControls: true,
-      showFullscreenButton: true,
-    ),
-  );
+
   static const colorizeTextStyle = TextStyle(
       fontSize: 30.0, fontFamily: 'Horizon', fontWeight: FontWeight.bold);
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Expanded(
+        /*   Expanded(
             child: Container(
           color: Colors.black,
           child: slider(),
-        )),
+        )),*/
         GetBuilder<Controller>(
             init: Controller(),
             builder: (controller) {
@@ -129,19 +121,15 @@ class HomeScr extends StatelessWidget {
                           child:
                               Icon(Icons.info_outline, color: Colors.white))),
                   body: Padding(
-                    padding: const EdgeInsets.all(30.0),
-                    child: IndexedStack(index: controller.selcted, children: [
-                      const Homescreen(),
-                      const MusicScreen(),
-                      YoutubePlayerControllerProvider(
-                        // Provides controller to all the widget below it.
-                        controller: _controller,
-                        child: const YoutubePlayerIFrame(
-                          aspectRatio: 16 / 9,
-                        ),
-                      ),
-                      const Shopscreen(),
-                    ]),
+                    padding: const EdgeInsets.all(20.0),
+                    child: IndexedStack(
+                        index: controller.selcted,
+                        children: const [
+                          Homescreen(),
+                          MusicScreen(),
+                          Text("data"),
+                          Shopscreen(),
+                        ]),
                   ),
                 ),
               );
