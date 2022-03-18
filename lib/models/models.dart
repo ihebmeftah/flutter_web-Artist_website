@@ -64,3 +64,45 @@ List<Products> prod = [
       frontimhurl: "images/p4front.jpg",
       backimhurl: "images/p4back.jpg"),
 ];
+
+class Track {
+  String id;
+
+  String trackname;
+  String albumname;
+  String views;
+  Track({
+    required this.id,
+    required this.trackname,
+    required this.albumname,
+    required this.views,
+  });
+}
+
+List<Track> ytb = [
+  Track(
+      id: "8oMfQeD_CXQ",
+      trackname: "RedStar - intro",
+      albumname: "Khrafa",
+      views: '1.6M '),
+  Track(
+      id: "y7K3ZMrFqn8",
+      trackname: "RedStar - Beb Blé",
+      albumname: "Khrafa",
+      views: '1.8M '),
+  Track(
+      id: "1vEcmTY3-y4",
+      trackname: "RedStar - 10 Years",
+      albumname: "Khrafa",
+      views: '670k '),
+  Track(
+      id: "JrlOvPCVp-E",
+      trackname: "RedStar - Ech Mazel Feat JenJoon",
+      albumname: "Khrafa",
+      views: '58M'),
+  Track(
+      id: "OW7VKnDOL88",
+      trackname: "RedStar - Famma Mennou Feat 4LFA",
+      albumname: "Khrafa",
+      views: '2.2M'),
+];

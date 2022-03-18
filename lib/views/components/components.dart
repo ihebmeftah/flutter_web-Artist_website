@@ -4,6 +4,7 @@ import 'package:flutter_bounceable/flutter_bounceable.dart';
 import 'package:flutter_web/views/theme/theme.dart';
 import 'package:get/get.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
+import 'dart:js' as js;
 
 Widget defaultTextFormField({
   String? Function(String? val)? validate,
@@ -91,9 +92,9 @@ slider() {
       viewportFraction: 1.0,
     ),
     items: [
-      "https://scontent.ftun7-1.fna.fbcdn.net/v/t39.30808-6/269965005_383151843605234_6725198869422476706_n.jpg?stp=dst-jpg_p480x480&_nc_cat=111&ccb=1-5&_nc_sid=8bfeb9&_nc_ohc=oyH1oAh4HUkAX8RQDgH&_nc_oc=AQlL-wpAJw58mf79lPdkpM_5s3NkMQ7gYDGfl410saGxHNPQeUPSoeS0yFABMnhYrEY&_nc_ht=scontent.ftun7-1.fna&oh=00_AT_6eDWtLAGTAQl4KxCk8oHnYDCcJc3lI9q3sOA7ucJdfw&oe=62331169",
-      "https://scontent.ftun7-1.fna.fbcdn.net/v/t39.30808-6/269865298_383151873605231_4740524413576597597_n.jpg?_nc_cat=110&ccb=1-5&_nc_sid=8bfeb9&_nc_ohc=b09zonCnIJsAX98cxAG&_nc_ht=scontent.ftun7-1.fna&oh=00_AT_v-eUxHxqsNe1-doGJu9wQlHoqYeUO0h8o5JgBqeLDAQ&oe=62331DFF",
-      "https://scontent.ftun7-1.fna.fbcdn.net/v/t39.30808-6/269905568_383151853605233_4665854728699153186_n.jpg?_nc_cat=106&ccb=1-5&_nc_sid=8bfeb9&_nc_ohc=qK9_hZkcutoAX8MsA7l&tn=JtdNzOyUZrZJh6ru&_nc_ht=scontent.ftun7-1.fna&oh=00_AT8whf4JX3b_6kG_GKNuZ8vjfe5bJK7yEAL0C0rKanueBQ&oe=62324AB8",
+      "https://scontent.ftun17-1.fna.fbcdn.net/v/t39.30808-6/269965005_383151843605234_6725198869422476706_n.jpg?_nc_cat=111&ccb=1-5&_nc_sid=8bfeb9&_nc_ohc=vCkDOO2M_eoAX8AKyYS&_nc_oc=AQlb2YXIOiC594G3L2cvB8WRVnMkloCJsBdCQR5ZAz5O1eDbQn_qNkNdoa5GUy9UkDo&_nc_ht=scontent.ftun17-1.fna&oh=00_AT8SXBIujWhZzUYxSsX20jqzxmRIvXE1QhBlByciXLaWjA&oe=62390029",
+      "https://scontent.ftun17-1.fna.fbcdn.net/v/t39.30808-6/269865298_383151873605231_4740524413576597597_n.jpg?_nc_cat=110&ccb=1-5&_nc_sid=8bfeb9&_nc_ohc=yQ_0_Ts0o5sAX9YDgFA&_nc_ht=scontent.ftun17-1.fna&oh=00_AT_zV6PGxDifw9pOC9k1YYHpsucrXZ8ABpBPAaQmRaaU_Q&oe=62390CBF",
+      "https://scontent.ftun17-1.fna.fbcdn.net/v/t39.30808-6/269905568_383151853605233_4665854728699153186_n.jpg?_nc_cat=106&ccb=1-5&_nc_sid=8bfeb9&_nc_ohc=iHH-KRQq-MUAX8j5ETP&tn=JtdNzOyUZrZJh6ru&_nc_ht=scontent.ftun17-1.fna&oh=00_AT8kcwgQ1w1B_Hp3YukcOmMfsqEDr1XYJ47Z2M6bds7RyQ&oe=62383978"
     ].map((i) {
       return Builder(
         builder: (BuildContext context) {
@@ -123,7 +124,10 @@ platforme({
         overlayColor: MaterialStateProperty.all(clr ?? Colors.blue),
         foregroundColor: MaterialStateProperty.all(Colors.white),
         backgroundColor: MaterialStateProperty.all(Colors.black)),
-    onPressed: () {},
+    onPressed: () {
+      js.context.callMethod(
+          'open', ['https://www.youtube.com/channel/UCEaQBiiuwbn_UG64vCq04dA']);
+    },
     child: Icon(icn),
   );
 }
@@ -158,36 +162,64 @@ productcard({
   );
 }
 
-youtubePlayer({required String initialVideoId}) {
+youtubePlayer({
+  required String initialVideoId,
+  required String trackname,
+  required String albumname,
+  required String views,
+}) {
   final YoutubePlayerController _controller = YoutubePlayerController(
     initialVideoId: initialVideoId,
     params: const YoutubePlayerParams(
-      autoPlay: true,
-      showVideoAnnotations: false,
-      playsInline: false,
-      desktopMode: true,
+      autoPlay: false,
     ),
   );
   return Row(
     crossAxisAlignment: CrossAxisAlignment.start,
     mainAxisAlignment: MainAxisAlignment.start,
     children: [
+      const SizedBox(
+        width: 40,
+      ),
       SizedBox(
         height: 280,
         width: 400,
-        child: YoutubePlayerControllerProvider(
+        child: YoutubePlayerIFrame(
           controller: _controller,
-          child: const YoutubePlayerIFrame(),
+          aspectRatio: 16 / 9,
         ),
       ),
-      SizedBox(
-        width: 25,
-      ),
       Expanded(
-          child: Text(
-        "dfdqofnqdjqdnfjqdkfbqdjflqbjdbfjdqlfqdjlfjldqljw",
-        style: ThemesApp().titleStyle,
-      ))
+          child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          const SizedBox(
+            height: 60,
+          ),
+          Text(
+            trackname,
+            style: ThemesApp().titleStyle,
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          Text(
+            "Album $albumname",
+            style: ThemesApp().titleStyle,
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          Text(
+            views,
+            style: ThemesApp().titleStyle,
+          ),
+        ],
+      )),
+      const SizedBox(
+        width: 40,
+      ),
     ],
   );
 }

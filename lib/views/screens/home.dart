@@ -21,11 +21,11 @@ class HomeScr extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        /*   Expanded(
+        Expanded(
             child: Container(
           color: Colors.black,
           child: slider(),
-        )),*/
+        )),
         GetBuilder<Controller>(
             init: Controller(),
             builder: (controller) {

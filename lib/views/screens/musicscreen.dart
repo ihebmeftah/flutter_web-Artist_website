@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_web/views/components/components.dart';
 
+import '../../models/models.dart';
+
+// ignore: must_be_immutable
 class MusicScreen extends StatelessWidget {
   const MusicScreen({Key? key}) : super(key: key);
 
@@ -9,14 +12,18 @@ class MusicScreen extends StatelessWidget {
     return Builder(builder: (context) {
       return ListView.separated(
         controller: ScrollController(),
-        itemCount: 10,
+        itemCount: ytb.length,
         separatorBuilder: (BuildContext context, int index) {
           return const SizedBox(
-            height: 20,
+            height: 10,
           );
         },
         itemBuilder: (BuildContext context, int index) {
-          return youtubePlayer(initialVideoId: '1vEcmTY3-y4');
+          return youtubePlayer(
+              initialVideoId: ytb[index].id,
+              albumname: ytb[index].albumname,
+              trackname: ytb[index].trackname,
+              views: ytb[index].views);
         },
       );
     });

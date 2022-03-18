@@ -14,15 +14,35 @@ class Homescreen extends StatelessWidget {
       child: Column(
         children: [
           Center(
-            child: Container(
-              height: 450,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(30),
-                  image: const DecorationImage(
-                      image: NetworkImage(
-                        "https://scontent.ftun7-1.fna.fbcdn.net/v/t1.6435-9/129000327_104773551487508_3874365708364612442_n.png?_nc_cat=104&ccb=1-5&_nc_sid=e3f864&_nc_ohc=hgZFP1UNonoAX-CG1GD&_nc_ht=scontent.ftun7-1.fna&oh=00_AT9Av73IY9mGwoYlUE85LuD50pydCFIlUnS3_KBQ__mqQQ&oe=6251F54B",
-                      ),
-                      fit: BoxFit.fill)),
+            child: Stack(
+              children: [
+                Container(
+                  height: 450,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(30),
+                      image: const DecorationImage(
+                          image: NetworkImage(
+                            "https://scontent.ftun7-1.fna.fbcdn.net/v/t1.6435-9/129000327_104773551487508_3874365708364612442_n.png?_nc_cat=104&ccb=1-5&_nc_sid=e3f864&_nc_ohc=hgZFP1UNonoAX-CG1GD&_nc_ht=scontent.ftun7-1.fna&oh=00_AT9Av73IY9mGwoYlUE85LuD50pydCFIlUnS3_KBQ__mqQQ&oe=6251F54B",
+                          ),
+                          fit: BoxFit.fill)),
+                ),
+                Positioned(
+                  left: 660,
+                  top: 10,
+                  child: Container(
+                    width: 200,
+                    padding: const EdgeInsets.all(15),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: Colors.red.withOpacity(0.4)),
+                    child: Text(
+                        """RedStar is a Tunisian Hip Hop group, based in Sousse, Tunisia.Formed in 2010, the group achieved mainstream success with its lineup formed of "G.G.A & RedStar Radi", and the legacy continues""",
+                        style: ThemesApp()
+                            .bodyStyle1
+                            .copyWith(color: Colors.black)),
+                  ),
+                ),
+              ],
             ),
           ),
           const SizedBox(
@@ -82,7 +102,9 @@ class Homescreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  platforme(icn: FontAwesomeIcons.facebookF),
+                  platforme(
+                    icn: FontAwesomeIcons.facebookF,
+                  ),
                   const SizedBox(
                     height: 10,
                   ),
