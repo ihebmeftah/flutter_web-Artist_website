@@ -4,7 +4,6 @@ import 'package:flutter_web/views/screens/homescreen.dart';
 import 'package:flutter_web/views/screens/musicscreen.dart';
 import 'package:flutter_web/views/screens/shopscreen.dart';
 import 'package:get/get.dart';
-
 import '../../controllers/controller.dart';
 import '../components/components.dart';
 

@@ -4,6 +4,7 @@ import 'package:flutter_bounceable/flutter_bounceable.dart';
 import 'package:flutter_web/views/theme/theme.dart';
 import 'package:get/get.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
+// ignore: avoid_web_libraries_in_flutter
 import 'dart:js' as js;
 
 Widget defaultTextFormField({
@@ -92,9 +93,9 @@ slider() {
       viewportFraction: 1.0,
     ),
     items: [
-      "https://scontent.ftun17-1.fna.fbcdn.net/v/t39.30808-6/269965005_383151843605234_6725198869422476706_n.jpg?_nc_cat=111&ccb=1-5&_nc_sid=8bfeb9&_nc_ohc=vCkDOO2M_eoAX8AKyYS&_nc_oc=AQlb2YXIOiC594G3L2cvB8WRVnMkloCJsBdCQR5ZAz5O1eDbQn_qNkNdoa5GUy9UkDo&_nc_ht=scontent.ftun17-1.fna&oh=00_AT8SXBIujWhZzUYxSsX20jqzxmRIvXE1QhBlByciXLaWjA&oe=62390029",
-      "https://scontent.ftun17-1.fna.fbcdn.net/v/t39.30808-6/269865298_383151873605231_4740524413576597597_n.jpg?_nc_cat=110&ccb=1-5&_nc_sid=8bfeb9&_nc_ohc=yQ_0_Ts0o5sAX9YDgFA&_nc_ht=scontent.ftun17-1.fna&oh=00_AT_zV6PGxDifw9pOC9k1YYHpsucrXZ8ABpBPAaQmRaaU_Q&oe=62390CBF",
-      "https://scontent.ftun17-1.fna.fbcdn.net/v/t39.30808-6/269905568_383151853605233_4665854728699153186_n.jpg?_nc_cat=106&ccb=1-5&_nc_sid=8bfeb9&_nc_ohc=iHH-KRQq-MUAX8j5ETP&tn=JtdNzOyUZrZJh6ru&_nc_ht=scontent.ftun17-1.fna&oh=00_AT8kcwgQ1w1B_Hp3YukcOmMfsqEDr1XYJ47Z2M6bds7RyQ&oe=62383978"
+      "images/carsouel2.jpg",
+      "images/carsouel1.jpg",
+      "images/carsouel3.jpg",
     ].map((i) {
       return Builder(
         builder: (BuildContext context) {
@@ -114,10 +115,7 @@ slider() {
   );
 }
 
-platforme({
-  required IconData icn,
-  Color? clr,
-}) {
+platforme({required IconData icn, Color? clr, required String url}) {
   return TextButton(
     style: ButtonStyle(
         elevation: MaterialStateProperty.all(12),
@@ -125,8 +123,7 @@ platforme({
         foregroundColor: MaterialStateProperty.all(Colors.white),
         backgroundColor: MaterialStateProperty.all(Colors.black)),
     onPressed: () {
-      js.context.callMethod(
-          'open', ['https://www.youtube.com/channel/UCEaQBiiuwbn_UG64vCq04dA']);
+      js.context.callMethod('open', [url]);
     },
     child: Icon(icn),
   );

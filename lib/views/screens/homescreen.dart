@@ -103,21 +103,31 @@ class Homescreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   platforme(
-                    icn: FontAwesomeIcons.facebookF,
-                  ),
+                      icn: FontAwesomeIcons.facebookF,
+                      url: "https://www.facebook.com/Red.Star.73"),
                   const SizedBox(
                     height: 10,
                   ),
                   platforme(
-                      icn: FontAwesomeIcons.instagram, clr: Colors.pinkAccent),
+                      icn: FontAwesomeIcons.instagram,
+                      clr: Colors.pinkAccent,
+                      url: "https://www.instagram.com/redstarradi/"),
                   const SizedBox(
                     height: 10,
                   ),
-                  platforme(icn: FontAwesomeIcons.spotify, clr: Colors.green),
+                  platforme(
+                      icn: FontAwesomeIcons.spotify,
+                      clr: Colors.green,
+                      url:
+                          "https://open.spotify.com/artist/3IMbYEUHFZ6Nkocs2GqMxp"),
                   const SizedBox(
                     height: 10,
                   ),
-                  platforme(icn: FontAwesomeIcons.youtube, clr: Colors.red),
+                  platforme(
+                      icn: FontAwesomeIcons.youtube,
+                      clr: Colors.red,
+                      url:
+                          "https://www.youtube.com/channel/UCpNEN5-7gzhUpapA3ob2ZqQ"),
                   const SizedBox(
                     height: 10,
                   )
@@ -188,20 +198,32 @@ class Homescreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.end,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  platforme(icn: FontAwesomeIcons.facebookF),
+                  platforme(
+                      icn: FontAwesomeIcons.facebookF,
+                      url: "https://www.facebook.com/GGAREDSTAR"),
                   const SizedBox(
                     height: 10,
                   ),
                   platforme(
-                      icn: FontAwesomeIcons.instagram, clr: Colors.pinkAccent),
+                      icn: FontAwesomeIcons.instagram,
+                      clr: Colors.pinkAccent,
+                      url: "https://www.instagram.com/ggaofficial/"),
                   const SizedBox(
                     height: 10,
                   ),
-                  platforme(icn: FontAwesomeIcons.spotify, clr: Colors.green),
+                  platforme(
+                      icn: FontAwesomeIcons.spotify,
+                      clr: Colors.green,
+                      url:
+                          "https://open.spotify.com/artist/3Ofbm810VXiC3VaO76oMPP"),
                   const SizedBox(
                     height: 10,
                   ),
-                  platforme(icn: FontAwesomeIcons.youtube, clr: Colors.red),
+                  platforme(
+                      icn: FontAwesomeIcons.youtube,
+                      clr: Colors.red,
+                      url:
+                          'https://www.youtube.com/channel/UCEaQBiiuwbn_UG64vCq04dA'),
                   const SizedBox(
                     height: 10,
                   )
